@@ -1,0 +1,11 @@
+<%= form_for @item, remote: true do |f| %>
+<%= f.text_field :name, placeholder: 'Name' %>
+<%= f.text_field :price, placeholder: 'Price' %>
+<%= f.hidden_field :menu_id, :value => @menu.id%>
+<%= f.submit 'Create Item' %>
+<% end %>
+
+<% @items.each do |item| %>
+<p>Name: <%= item.name %>
+Price: <%= integer_to_dollars(item.price) %></p>
+<% end %>
